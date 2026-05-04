@@ -1,0 +1,20 @@
+theme = TokyoNight Night
+# The syntax is "key = value". The whitespace around the
+# equals doesn't matter.
+background = 0F0F0F
+background-opacity = 0.88
+background-blur = true
+background-blur-radius = 25
+#background-blur = macos-glass-regular
+
+
+# Empty values reset the configuration to the default value
+#font-family = "JetBrains Mono"
+cursor-style = block
+custom-shader-animation = always
+macos-titlebar-style = transparent
+shell-integration-features = ssh-env
+window-padding-balance = true
+window-padding-x = 5
+window-padding-y = 0
+window-save-state = always

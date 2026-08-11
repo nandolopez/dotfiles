@@ -1,28 +1,15 @@
-function loadConfig()
-    -- Getting al plugins depending of OS
-    local win_cmd = "dir /b %appdata%\\nvim\\lua\\"
-    local unix_cmd = "ls ~/.config/nvim/lua/"
+require("options")
+require("autocmds")
+require("netwr")
+require("functions")
+require("keymaps")
+require("statusline")
+require("find")
 
-    local cmd = package.config:sub(1, 1) == "\\" and win_cmd or unix_cmd
-
-    -- Files list
-    local files = {}
-
-    -- Getting directory plugins file
-    local handle = io.popen(cmd)
-    if handle then
-        local i = 0
-        for line in handle:lines() do
-            -- ignore init.lua
-            if line ~= "init.lua" then
-                -- get only filename without extension
-                local file_name = line:match("^(.+)%..+$") or line
-                --load plugin
-                require("."..file_name)
-            end
-        end
-        handle:close()
-    end
-end
-loadConfig()
---loadConfig('plugins')
+-- === MINI.NVIM MODULES ===
+require('mini.ai').setup()
+require('mini.pairs').setup()
+require("minis.clue")
+-- === LSP configurations ===
+vim.lsp.enable({ "lua_ls" })
+vim.diagnostic.config({ virtual_text = true })

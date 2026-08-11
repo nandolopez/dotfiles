@@ -1,29 +1,113 @@
--- for avoid repeat code
-local default_opts = { noremap=true, silent=true }
+-- Leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 
-vim.keymap.set("n", "<leader>s", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]], { noremap=true })
-vim.keymap.set("n", "<leader>t", ":lua print('hello world')<CR>", { noremap=true })
+--
+-- See "desc" parameter to check what do each action
+--
+-- === TEXT ===
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("i", "<C-TAB>", "<C-O><CR>", { desc = "Select first autocomplete", noremap = "true" })
 
--- Update plugins
-vim.keymap.set("n", "<leader>pu", ":lua vim.pack.update()<CR>", default_opts )
+-- === FILES ===
+vim.keymap.set("n", "<leader>fc", keymap_file_copy_fullpath, { desc = "Copy file full path", noremap = true })
+vim.keymap.set("n", "<leader>fe", ":Lexplore<CR>", { desc = "Explorer", noremap = true })
+vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file", noremap = true })
+vim.keymap.set("n", "<leader>fg", ":grep ", { desc = "Grep in files" })
 
--- BUFFERS
--- close buffer
-vim.keymap.set("n", "<leader>bd", ":bd<CR>", default_opts)
--- next buffer
-vim.keymap.set("n", "<leader>bn", ":bn<CR>", default_opts)
--- previous buffer
-vim.keymap.set("n", "<leader>bp", ":bp<CR>", default_opts)
+--
+-- See "desc" parameter to check what do each action
+--
+-- === TEXT ===
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("i", "<C-TAB>", "<C-O><CR>", { desc = "Select first autocomplete", noremap = "true" })
 
--- LSP STUFF
--- 'K' See documentation
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, default_opts)
+-- === FILES ===
+vim.keymap.set("n", "<leader>fc", keymap_file_copy_fullpath, { desc = "Copy file full path", noremap = true })
+vim.keymap.set("n", "<leader>fe", ":Lexplore<CR>", { desc = "Explorer", noremap = true })
+vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file", noremap = true })
+vim.keymap.set("n", "<leader>fg", ":grep ", { desc = "Grep in files" })
+vim.keymap.set("n", "<leader>fo", ":Oil --float ./<CR>", { desc = "Explorer Oil", noremap = true })
 
--- 'gi' go to implementation
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, default_opts)
+-- === WINDOW ===
+vim.keymap.set("n", "<leader>wc", ":vsplit<CR><C-W>l", { desc = "Column window", noremap = "true" })
+vim.keymap.set("n", "<leader>wr", ":split<CR><C-W>j", { desc = "Row window", noremap = "true" })
+vim.keymap.set("n", "<leader>wh", "<C-W>h", { desc = "Go left window", noremap = "true" })
+vim.keymap.set("n", "<leader>wj", "<C-W>j", { desc = "Go bottom window", noremap = "true" })
+vim.keymap.set("n", "<leader>wk", "<C-W>k", { desc = "Go top window", noremap = "true" })
+vim.keymap.set("n", "<leader>wl", "<C-W>l", { desc = "Go right window", noremap = "true" })
+vim.keymap.set("n", "<leader>w+", ":vertical resize +10<CR>", { desc = "Icrement vertical width", noremap = "true" })
+vim.keymap.set("n", "<leader>w-", ":vertical resize -10<CR>", { desc = "Decrement vertical width", noremap = "true" })
+vim.keymap.set("n", "<leader>wu", ":resize +10<CR>", { desc = "Increment Horizontal height", noremap = "true" })
+vim.keymap.set("n", "<leader>wd", ":resize -10<CR>", { desc = "Decreent Horizontal height", noremap = "true" })
+vim.keymap.set("n", "<leader>wx", ":close!<CR>", { desc = "Decreent Horizontal height", noremap = "true" })
 
--- 'gd' go to definition
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, default_opts)
 
--- 'gr' para ver dónde se usa (referencias)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references, default_opts)
+-- === BUFFERS ===
+vim.keymap.set("n", "<leader>bl", ":buffers<CR>", { desc = "List", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Delete", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Next", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous", noremap = true, silent = true })
+
+-- === LSP ===
+vim.keymap.set('n', '<leader>lc', ":checkhealth vim.lsp<CR>",
+    { desc = "Check LSP health", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>lk', vim.lsp.buf.hover, { desc = "See documentation", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation,
+    { desc = "Go to implementation", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition, { desc = "Got to definition", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, { desc = "Go to reference", noremap = true, silent = true })
+
+-- === CODE MOVEMENT ===
+-- keyset
+vim.keymap.set("n", "<leader>cf", keymap_find_flash, { desc = "Flash search", noremap = true })
+vim.keymap.set({ "n", "v" }, "<leader>cr", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Replace all concurrences", noremap = "true" })
+
+-- === TERMINAL ===
+vim.keymap.set("n", "<leader>t", ":terminal<CR>", { desc = "Terminal" })
+vim.keymap.set("n", "<leader>fo", ":Oil --float ./<CR>", { desc = "Explorer Oil", noremap = true })
+
+-- === WINDOW ===
+vim.keymap.set("n", "<leader>wc", ":vsplit<CR><C-W>l", { desc = "Column window", noremap = "true" })
+vim.keymap.set("n", "<leader>wr", ":split<CR><C-W>j", { desc = "Row window", noremap = "true" })
+vim.keymap.set("n", "<leader>wh", "<C-W>h", { desc = "Go left window", noremap = "true" })
+vim.keymap.set("n", "<leader>wj", "<C-W>j", { desc = "Go bottom window", noremap = "true" })
+vim.keymap.set("n", "<leader>wk", "<C-W>k", { desc = "Go top window", noremap = "true" })
+vim.keymap.set("n", "<leader>wl", "<C-W>l", { desc = "Go right window", noremap = "true" })
+vim.keymap.set("n", "<leader>w+", ":vertical resize +10<CR>", { desc = "Icrement vertical width", noremap = "true" })
+vim.keymap.set("n", "<leader>w-", ":vertical resize -10<CR>", { desc = "Decrement vertical width", noremap = "true" })
+vim.keymap.set("n", "<leader>wu", ":resize +10<CR>", { desc = "Increment Horizontal height", noremap = "true" })
+vim.keymap.set("n", "<leader>wd", ":resize -10<CR>", { desc = "Decreent Horizontal height", noremap = "true" })
+vim.keymap.set("n", "<leader>wx", ":close!<CR>", { desc = "Decreent Horizontal height", noremap = "true" })
+
+
+-- === BUFFERS ===
+vim.keymap.set("n", "<leader>bl", ":buffers<CR>", { desc = "List", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Delete", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Next", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous", noremap = true, silent = true })
+
+-- === LSP ===
+vim.keymap.set('n', '<leader>lc', ":checkhealth vim.lsp<CR>",
+    { desc = "Check LSP health", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>lk', vim.lsp.buf.hover, { desc = "See documentation", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation,
+    { desc = "Go to implementation", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition, { desc = "Got to definition", noremap = true, silent = true })
+vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, { desc = "Go to reference", noremap = true, silent = true })
+
+-- === CODE MOVEMENT ===
+-- keyset
+vim.keymap.set("n", "<leader>cf", keymap_find_flash, { desc = "Flash search", noremap = true })
+vim.keymap.set({ "n", "v" }, "<leader>cr", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Replace all concurrences", noremap = "true" })
+
+-- === TERMINAL ===
+vim.keymap.set("n", "<leader>t", ":terminal<CR>", { desc = "Terminal" })

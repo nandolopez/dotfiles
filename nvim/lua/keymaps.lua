@@ -111,3 +111,15 @@ vim.keymap.set({ "n", "v" }, "<leader>cr", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><
 
 -- === TERMINAL ===
 vim.keymap.set("n", "<leader>t", ":terminal<CR>", { desc = "Terminal" })
+
+-- === IA ===
+vim.keymap.set({ "n", "x" }, "<leader>ia", function() require("opencode").ask("@this: ") end, { desc = "Ask OpenCode…" })
+vim.keymap.set({ "n", "x" }, "<leader>is", function() require("opencode").select() end, { desc = "Select OpenCode…" })
+vim.keymap.set({ "n", "x" }, "<leader>ir", function() return require("opencode").operator("@this ") end,
+    { desc = "Append range to OpenCode", expr = true })
+vim.keymap.set({ "n" }, "<leader>il", function() return require("opencode").operator("@this ") .. "_" end,
+    { desc = "Append line to OpenCode", expr = true })
+vim.keymap.set({ "n" }, "<leader>iu", function() require("opencode").command("session.half.page.up") end,
+    { desc = "Scroll OpenCode up" })
+vim.keymap.set({ "n" }, "<leader>id", function() require("opencode").command("session.half.page.down") end,
+    { desc = "Scroll OpenCode down" })

@@ -43,6 +43,7 @@ miniclue.setup({
 
     clues = {
         { mode = 'n', keys = '<Leader>b', desc = '+ Buffers' },
+        { mode = 'n', keys = '<Leader>i', desc = '+ IA' },
         { mode = 'n', keys = '<Leader>w', desc = '+ Windows' },
         { mode = 'n', keys = '<Leader>f', desc = '+ Files' },
         { mode = 'n', keys = '<Leader>c', desc = '+ Code' },

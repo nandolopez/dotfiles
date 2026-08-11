@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "llama.vim": {
+      "rev": "87c4ce8934258f284d460ffe15067f214e6c84b7",
+      "src": "https://github.com/ggml-org/llama.vim"
+    },
     "mini.nvim": {
       "rev": "8cef23520832134c05e4524e49f0468623501053",
       "src": "https://github.com/nvim-mini/mini.nvim"
@@ -7,6 +11,11 @@
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "opencode.nvim": {
+      "rev": "41622312d5d8fb074699c1d5d96f089286191376",
+      "src": "https://github.com/nickjvandyke/opencode.nvim",
+      "version": ">=0.0.0"
     },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",

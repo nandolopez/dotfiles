@@ -56,3 +56,7 @@ vim.opt.laststatus = 3
 --vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 --vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "grep -HEIn $* ."
+
+-- Enable default file xplorer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

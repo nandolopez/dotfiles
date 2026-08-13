@@ -15,10 +15,9 @@ vim.keymap.set("i", "<C-TAB>", "<C-O><CR>", { desc = "Select first autocomplete"
 
 -- === FILES ===
 vim.keymap.set("n", "<leader>fc", keymap_file_copy_fullpath, { desc = "Copy file full path", noremap = true })
-vim.keymap.set("n", "<leader>fe", ":Lexplore<CR>", { desc = "Explorer", noremap = true })
 vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file", noremap = true })
 vim.keymap.set("n", "<leader>fg", ":grep ", { desc = "Grep in files" })
-vim.keymap.set("n", "<leader>fo", ":Oil --float ./<CR>", { desc = "Explorer Oil", noremap = true })
+vim.keymap.set("n", "<leader>fe", ":Oil --float --preview ./<CR>", { desc = "Explorer Oil", noremap = true })
 
 -- === WINDOW ===
 vim.keymap.set("n", "<leader>wc", ":vsplit<CR><C-W>l", { desc = "Column window", noremap = "true" })

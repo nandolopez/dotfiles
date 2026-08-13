@@ -1,11 +1,7 @@
 {
   "plugins": {
-    "llama.vim": {
-      "rev": "87c4ce8934258f284d460ffe15067f214e6c84b7",
-      "src": "https://github.com/ggml-org/llama.vim"
-    },
     "mini.nvim": {
-      "rev": "8cef23520832134c05e4524e49f0468623501053",
+      "rev": "629bf6792187e11b4829411c1648f86f28df3963",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "oil.nvim": {
@@ -16,6 +12,10 @@
       "rev": "41622312d5d8fb074699c1d5d96f089286191376",
       "src": "https://github.com/nickjvandyke/opencode.nvim",
       "version": ">=0.0.0"
+    },
+    "smear-cursor.nvim": {
+      "rev": "9e9378d6ee34bb3782e0e8c63d9ec8ca618b479b",
+      "src": "https://github.com/sphamba/smear-cursor.nvim"
     },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",

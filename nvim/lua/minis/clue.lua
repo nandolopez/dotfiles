@@ -43,12 +43,14 @@ miniclue.setup({
 
     clues = {
         { mode = 'n', keys = '<Leader>b', desc = '+ Buffers' },
-        { mode = 'n', keys = '<Leader>i', desc = '+ IA' },
-        { mode = 'n', keys = '<Leader>w', desc = '+ Windows' },
-        { mode = 'n', keys = '<Leader>f', desc = '+ Files' },
         { mode = 'n', keys = '<Leader>c', desc = '+ Code' },
+        { mode = 'n', keys = '<Leader>f', desc = '+ Files' },
+        { mode = 'n', keys = '<Leader>i', desc = '+ IA' },
         { mode = 'n', keys = '<Leader>l', desc = '+ LSP' },
-        { mode = 'n', keys = '<Leader>p', desc = '+ Plugins' },
+        { mode = 'n', keys = '<Leader>n', desc = '+ Neovim' },
+        { mode = 'n', keys = '<Leader>r', desc = '+ Clipboard / Records' },
+        { mode = 'n', keys = '<Leader>t', desc = '+ Terminal' },
+        { mode = 'n', keys = '<Leader>w', desc = '+ Windows' },
 
         -- Enhance this by adding descriptions for <Leader> mapping groups
         miniclue.gen_clues.square_brackets(),

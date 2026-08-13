@@ -1,10 +1,10 @@
 require("options")
 require("autocmds")
-require("netwr")
+require("netrw")
 require("functions")
-require("keymaps")
 require("statusline")
 require("find")
+require("keymaps")
 
 -- === MINI.NVIM MODULES ===
 require('mini.ai').setup()

@@ -52,9 +52,6 @@ vim.opt.cmdheight = 0
 -- Set one unique status bar for all windows
 vim.opt.laststatus = 3
 
--- Allow nerdfonts
-vim.g.have_nerd_font = true
-
 -- Grep cofigs
 --vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 --vim.opt.grepformat = "%f:%l:%c:%m"
